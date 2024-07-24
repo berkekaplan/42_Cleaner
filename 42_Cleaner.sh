@@ -6,28 +6,6 @@ then
 fi
 echo -e "\nBefore : $Storage"
 
-should_log=0
-if [[ "$1" == "-p" || "$1" == "--print" ]]; then
-	should_log=1
-fi
-
-function clean_glob {
-	# don't do anything if argument count is zero (unmatched glob).
-	if [ -z "$1" ]; then
-		return 0
-	fi
-
-	if [ $should_log -eq 1 ]; then
-		for arg in "$@"; do
-			du -sh "$arg" 2>/dev/null
-		done
-	fi
-
-	/bin/rm -rf "$@" &>/dev/null
-
-	return 0
-}
-
 function clean {
 	# to avoid printing empty lines
 	# or unnecessarily calling /bin/rm
