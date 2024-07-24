@@ -1,10 +1,33 @@
 #calculating the current available storage
+
 Storage=$(df -h "$HOME" | grep "$HOME" | awk '{print($4)}' | tr 'i' 'B')
 if [ "$Storage" == "0BB" ];
 then
 	Storage="0B"
 fi
 echo -e "\nBefore : $Storage"
+
+should_log=0
+if [[ "$1" == "-p" || "$1" == "--print" ]]; then
+	should_log=1
+fi
+
+function clean_glob {
+	# don't do anything if argument count is zero (unmatched glob).
+	if [ -z "$1" ]; then
+		return 0
+	fi
+
+	if [ $should_log -eq 1 ]; then
+		for arg in "$@"; do
+			du -sh "$arg" 2>/dev/null
+		done
+	fi
+
+	/bin/rm -rf "$@" &>/dev/null
+
+	return 0
+}
 
 function clean {
 	# to avoid printing empty lines
@@ -75,6 +98,10 @@ function clean {
 
 }
 clean
+
+if [ $should_log -eq 1 ]; then
+	echo
+fi
 
 #calculating the new available storage after cleaning
 Storage=$(df -h "$HOME" | grep "$HOME" | awk '{print($4)}' | tr 'i' 'B')
