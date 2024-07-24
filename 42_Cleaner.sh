@@ -27,7 +27,7 @@ function clean {
 	clean_glob "$HOME"/Library/Caches/*
 	clean_glob "$HOME"/Library/Application\ Support/Caches/*
 
-	#Slack, VSCode, Discord and Chrome Caches
+	#Slack, VSCode, Discord and Chrome, Firefox, Brave, Safari Caches
 	clean_glob "$HOME"/Library/Application\ Support/Slack/Service\ Worker/CacheStorage/*
 	clean_glob "$HOME"/Library/Application\ Support/Slack/Cache/*
 	clean_glob "$HOME"/Library/Application\ Support/discord/Cache/*
@@ -42,6 +42,11 @@ function clean {
 	clean_glob "$HOME"/Library/Application\ Support/Google/Chrome/Profile\ [0-9]/Application\ Cache/*
 	clean_glob "$HOME"/Library/Application\ Support/Google/Chrome/Default/Application\ Cache/*
 	clean_glob "$HOME"/Library/Application\ Support/Google/Chrome/Crashpad/completed/*
+	clean_glob "$HOME"/Library/Caches/Firefox/*
+    clean_glob "$HOME"/Library/Application\ Support/Firefox/Profiles/*
+	clean_glob "$HOME"/Library/Application\ Support/BraveSoftware/Brave-Browser/*
+	clean_glob "$HOME"/Library/Caches/com.apple.Safari/*
+    clean_glob "$HOME"/Library/Safari/*
 
 	#.DS_Store files
 	clean_glob "$HOME"/Desktop/**/*/.DS_Store
@@ -51,6 +56,18 @@ function clean {
 	clean_glob "$HOME"/Library/Application\ Support/Chromium/Profile\ [0-9]/File\ System
 	clean_glob "$HOME"/Library/Application\ Support/Google/Chrome/Default/File\ System
 	clean_glob "$HOME"/Library/Application\ Support/Google/Chrome/Profile\ [0-9]/File\ System
+	clean_glob "$HOME"/Library/Application\ Support/Firefox/Profiles/*/recovery.jsonlz4
+	clean_glob "$HOME"/Library/Application\ Support/Firefox/Profiles/*/cache2/*
+	clean_glob "$HOME"/Library/Application\ Support/Firefox/Profiles/*/cookies.sqlite
+	clean_glob "$HOME"/Library/Application\ Support/Firefox/Profiles/*/storage/default/*
+	clean_glob "$HOME"/Library/Application\ Support/BraveSoftware/Brave-Browser/Default/File\ System
+	clean_glob "$HOME"/Library/Application\ Support/BraveSoftware/Brave-Browser/Default/Cache
+	clean_glob "$HOME"/Library/Application\ Support/BraveSoftware/Brave-Browser/Default/Cookies
+	clean_glob "$HOME"/Library/Application\ Support/BraveSoftware/Brave-Browser/Default/CacheStorage
+	clean_glob "$HOME"/Library/Safari/LocalStorage/*
+	clean_glob "$HOME"/Library/Safari/Databases/*
+	clean_glob "$HOME"/Library/Safari/Cache/*
+	clean_glob "$HOME"/Library/Safari/Cache.db
 
 	#things related to pool (piscine)
 	clean_glob "$HOME"/Desktop/Piscine\ Rules\ *.mp4
