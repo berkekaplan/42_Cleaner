@@ -43,10 +43,10 @@ function clean {
 	clean_glob "$HOME"/Library/Application\ Support/Google/Chrome/Default/Application\ Cache/*
 	clean_glob "$HOME"/Library/Application\ Support/Google/Chrome/Crashpad/completed/*
 	clean_glob "$HOME"/Library/Caches/Firefox/*
-    clean_glob "$HOME"/Library/Application\ Support/Firefox/Profiles/*
+	clean_glob "$HOME"/Library/Application\ Support/Firefox/Profiles/*
 	clean_glob "$HOME"/Library/Application\ Support/BraveSoftware/Brave-Browser/*
 	clean_glob "$HOME"/Library/Caches/com.apple.Safari/*
-    clean_glob "$HOME"/Library/Safari/*
+	clean_glob "$HOME"/Library/Safari/*
 
 	#.DS_Store files
 	clean_glob "$HOME"/Desktop/**/*/.DS_Store
